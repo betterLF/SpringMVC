@@ -1,0 +1,12 @@
+spring和springMVC的整合:
+1:不整合:需要将spring所管理的内容都交给springMVC管理，这样会造成业务逻辑混乱
+2:整合:spring的配置文件什么时候加载，如何加载
+解决方法:监听器，可以在ServletContext加载时，通过监听器加载spring的配置文件，创建spring容器
+spring提供的监听器:ContextLoaderListener
+3:bean被创建两次的问题:在springMVC中只扫描控制层，在spring中，通过包含或排除对所扫描的包进行指定
+4:spring和springMVC的关系:
+spring是父容器
+springMVC是子容器
+规定:子容器能够调用访问父容器中的bean，而父容器不能调用访问子容器中的bean
+springMVC管理     spring管理      spring管理
+controller-------service---------dao
